@@ -8,7 +8,7 @@
 ## 🧭 Context
 
 
-![Data Engineering Project Banner](assets/banner.png)
+![Data Engineering Project Banner](assets/banner2.png)
 
 This project simulates a real-world data engineering challenge where a mobility analytics team needs to process and analyze **millions of trips** stored in CSV format. The goal is to build a robust pipeline that can:
 
