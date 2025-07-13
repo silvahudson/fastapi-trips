@@ -6,6 +6,10 @@
 ![Docker](https://img.shields.io/badge/docker-ready-brightgreen)
 
 ## 🧭 Context
+
+
+![Data Engineering Project Banner](assets/banner.png)
+
 This project simulates a real-world data engineering challenge where a mobility analytics team needs to process and analyze **millions of trips** stored in CSV format. The goal is to build a robust pipeline that can:
 
 - Efficiently ingest raw mobility data
@@ -118,6 +122,8 @@ fastapi-trips/
 │   ├── models.py
 │   ├── grouping.py
 │   ├── weekly.py
+├── assets/
+│   └── banner.png
 ├── data/
 │   └── trips.csv
 ├── sql/
