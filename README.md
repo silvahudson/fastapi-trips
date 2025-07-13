@@ -41,6 +41,22 @@ It’s designed with scalability and modularity in mind, making it easy to exten
 
 ---
 
+## ✅ Solution Overview & Requirements Coverage
+
+This solution was built to meet all the challenge's mandatory and bonus requirements:
+
+* 🔄 **Automated ingestion:** CSV data is ingested via `/ingest` or `/ingest_async` endpoints directly into PostgreSQL.
+* 🧭 **Trip grouping:** The `/grouped` endpoint clusters trips with similar origin, destination and time of day using spatial logic.
+* 📅 **Weekly averages by region:** The `/weekly_avg?region=XYZ` endpoint computes weekly average trips for a given region.
+* 📡 **Ingestion status (no polling):** Real-time ingestion status is available through the `/ws/ingestion` WebSocket endpoint.
+* ⚙️ **Scalability:** The solution uses PostGIS with GIST indexes and a simplified schema, and is designed to scale to 100M+ records.
+* 🗃️ **SQL database:** All data is stored and queried from PostgreSQL with PostGIS extensions.
+* 🐳 **Containerized:** Docker + Docker Compose ensure local and cloud portability.
+* ☁️ **Cloud-ready design:** README includes an AWS architecture sketch with S3, Lambda/API Gateway, ECS/Fargate, and RDS.
+* 🧠 **Bonus SQL queries:** Included in `sql/03_bonus_queries.sql`, answering required questions on regions and datasources.
+
+---
+
 ## 🧪 How to Run Locally
 
 > Requirements: [Docker](https://www.docker.com/)
