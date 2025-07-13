@@ -123,7 +123,8 @@ fastapi-trips/
 │   ├── grouping.py
 │   ├── weekly.py
 ├── assets/
-│   └── banner.png
+│   └── banner1.png
+|   └── banner2.png
 ├── data/
 │   └── trips.csv
 ├── sql/
