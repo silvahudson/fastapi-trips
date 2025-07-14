@@ -45,15 +45,50 @@ It’s designed with scalability and modularity in mind, making it easy to exten
 
 This solution was built to meet all the challenge's mandatory and bonus requirements:
 
-* 🔄 **Automated ingestion:** CSV data is ingested via `/ingest` or `/ingest_async` endpoints directly into PostgreSQL.
-* 🧭 **Trip grouping:** The `/grouped` endpoint clusters trips with similar origin, destination and time of day using spatial logic.
-* 📅 **Weekly averages by region:** The `/weekly_avg?region=XYZ` endpoint computes weekly average trips for a given region.
-* 📡 **Ingestion status (no polling):** Real-time ingestion status is available through the `/ws/ingestion` WebSocket endpoint.
-* ⚙️ **Scalability:** The solution uses PostGIS with GIST indexes and a simplified schema, and is designed to scale to 100M+ records.
-* 🗃️ **SQL database:** All data is stored and queried from PostgreSQL with PostGIS extensions.
-* 🐳 **Containerized:** Docker + Docker Compose ensure local and cloud portability.
-* ☁️ **Cloud-ready design:** README includes an AWS architecture sketch with S3, Lambda/API Gateway, ECS/Fargate, and RDS.
-* 🧠 **Bonus SQL queries:** Included in `sql/03_bonus_queries.sql`, answering required questions on regions and datasources.
+### ✅ Mandatory Features
+
+- 🔄 **Automated ingestion**  
+  CSV data is ingested into PostgreSQL via the `/ingest` (sync) and `/ingest_async` (async) endpoints.
+
+- 🧭 **Trip grouping**  
+  The `/grouped` endpoint clusters trips with similar origin, destination, and time of day using spatial logic and SQL aggregation.
+
+- 📅 **Weekly average by region**  
+  The `/weekly_avg?region=XYZ` endpoint calculates the weekly average number of trips for a given region. (Optional bounding box support can be added via PostGIS geometry filters.)
+
+- 📡 **Ingestion status without polling**  
+  The ingestion status can be tracked in real time using the `/ws/ingestion` WebSocket endpoint, avoiding polling.
+
+- ⚙️ **Scalability to 100M+ records**  
+  The system is designed to scale horizontally and vertically, ensuring performance and robustness at scale.
+
+#### 📈 Proven Scalability
+
+The solution supports large-scale datasets through the following strategies:
+
+- 🔍 PostgreSQL + PostGIS for optimized spatial queries.
+- 📌 GIST indexes and additional indexes on `region`, `datetime`, and `geom` columns.
+- 🧱 A simplified relational data model designed for partitioning (by date or region) if needed.
+- 🐳 Dockerized architecture, ready for horizontal scaling with ECS, Fargate, or Kubernetes.
+- ☁️ Cloud-ready with an AWS architecture sketch including scalable components: S3, Lambda/API Gateway, ECS, and RDS (PostgreSQL/PostGIS).
+
+- 🗃️ **SQL database**  
+  PostgreSQL with PostGIS is used for all data storage and spatial analysis.
+
+---
+
+### 🎁 Bonus Features
+
+- 🐳 **Containerized**  
+  The entire solution runs in Docker containers using `docker-compose`, enabling local and cloud deployment.
+
+- ☁️ **Cloud-ready design**  
+  The README includes a sketch of a possible deployment architecture on AWS using S3, Lambda/API Gateway, ECS/Fargate, and RDS.
+
+- 🧠 **Bonus SQL queries**  
+  Included in `sql/03_bonus_queries.sql`, answering:
+  - What is the latest datasource for the two most common regions?
+  - In which regions has the `cheap_mobile` datasource appeared?
 
 ---
 
