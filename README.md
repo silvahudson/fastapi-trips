@@ -100,7 +100,7 @@ The solution supports large-scale datasets through the following strategies:
 git clone https://github.com/silvahudson/fastapi-trips.git
 cd fastapi-trips
 docker-compose up --build
-````
+```
 
 Then access the API docs at:
 
@@ -189,7 +189,12 @@ fastapi-trips/
 ```
 
 ---
+## 👤 Author
 
+**Hudson Silva** — Senior / AI Data Engineer
+- LinkedIn: [in/osilvahudson](https://www.linkedin.com/in/osilvahudson)
+- GitHub: [@silvahudson](https://github.com/silvahudson)
+  
 ## 📄 License
 
 This project is licensed under the MIT License.
